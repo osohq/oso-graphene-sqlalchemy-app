@@ -1,0 +1,4 @@
+expenses.db
+venv/
+app/__pycache__/
+*.pyc
