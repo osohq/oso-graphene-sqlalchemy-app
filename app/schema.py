@@ -19,8 +19,15 @@ class User(SQLAlchemyObjectType):
         interfaces = (relay.Node,)
 
 
+class Project(SQLAlchemyObjectType):
+    class Meta:
+        model = models.Project
+        interfaces = (relay.Node,)
+
+
 class Query(graphene.ObjectType):
     expenses = SQLAlchemyConnectionField(Expense.connection)
+    projects = SQLAlchemyConnectionField(Project.connection)
     user = graphene.Field(User)
     node = graphene.relay.Node.Field()
 
