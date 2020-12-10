@@ -1,1 +1,2 @@
-allow(_actor, _action, _resource);
+allow(_: User, "read", _: Expense);
+allow(_: User, "read", _: User);
