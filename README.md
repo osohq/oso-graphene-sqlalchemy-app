@@ -4,7 +4,8 @@ oso allows you to write policy as code, tightly integrated
 with application code, logic, and data, and provides a simple
 way to enforce authorization on all requests.
 
-This repository contains an example application discussed on our blog.
+This repository contains an example application discussed [on our
+blog](https://www.osohq.com/post/graphql-authorization-graphene-sqlalchemy-oso).
 
 ## Install & Running
 
