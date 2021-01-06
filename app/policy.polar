@@ -1,13 +1,13 @@
-allow(user: User, "read", model) if
-    created(user, model);
+def scope custom {
+    allow(user: User, "read", expense: Expense);
+}
 
-created(user: User, expense: Expense) if
-    expense.created_by = user;
+def scope base {
+    allow(user, action, resource);
+}
 
-created(user: User, project: Project) if
-    project.created_by = user;
+allow(user, action, resource) if
+    base::allow(user, action, resource);
 
-allow(user: User, "read", expense: Expense) if
-    expense.project in user.projects;
-
-allow(_: User, "read", _: User);
+allow(user, action, resource) if
+    custom::allow(user, action, resource);

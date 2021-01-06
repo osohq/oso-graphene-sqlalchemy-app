@@ -6,8 +6,14 @@ from sqlalchemy import Table
 
 from sqlalchemy_oso.flask import AuthorizedSQLAlchemy
 
+def get_oso():
+    try:
+        return request.oso
+    except:
+        return None
+
 db = AuthorizedSQLAlchemy(
-    get_oso=lambda: current_app.oso,
+    get_oso=get_oso,
     get_user=lambda: getattr(g, "current_user", None),
     get_action=lambda: "read"
 )

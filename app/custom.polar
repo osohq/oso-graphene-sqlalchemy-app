@@ -1,0 +1,1 @@
+allow(user: User, "read", expense: Expense);
